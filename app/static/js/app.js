@@ -11,7 +11,7 @@ dropdown.on("change", function () {
 
 // get the new data
 function doWork() {
-  let inp_state = dropdown.property("value");
+  let inp_Country = dropdown.property("value");
 
   // grab the data
   let url = `/api/v1.0/${inp_Country}`;
@@ -21,7 +21,9 @@ function doWork() {
     console.log(data);
 
     makeMap(data);
-    //makeBar(data);
+    makeBar(data);
+    makePie(data);
+    makePie2(data);
   });
 }
 
@@ -49,29 +51,32 @@ function makeMap(data) {
 
   // Step 2: Create the OVERLAY (DATA) Layers
   // Create a new marker cluster group.
-  //let markerLayer = L.markerClusterGroup();
-  //let markers = [];
+  let markerLayer = L.markerClusterGroup();
+  let markers = [];
 
-  // Loop through the data.
-  //for (let i = 0; i < data.map_data.length; i++){
+  //Loop through the data.
+  for (let i = 0; i < data.map_data.length; i++){
 
-    // Set the data location property to a variable.
-  //   let row = data.map_data[i];
+    //Set the data location property to a variable.
+    let row = data.map_data[i];
 
-  //   // Get Lat/Long
-  //   let latitude = row.latitude;
-  //   let longitude = row.longitude;
-  //   let location = [latitude, longitude];
+    // Get Lat/Long
+    let latitude = row.lat;
+    let longitude = row.lng;
+    let location = [latitude, longitude];
 
-  //   // Add a new marker to the cluster group, and bind a popup.
-  //   let marker = L.marker(location).bindPopup(`<h3>${row.address}</h3>`);
-  //   markerLayer.addLayer(marker);
+    // Add a new marker to the cluster group, and bind a popup.
+    let marker = L.marker(location).bindPopup(`<h3><b>AQI Category:</b> ${row["AQI Category"]} </h3><br>
+    <h3><b>AQI Value:</b> ${row["AQI Value"]} </h3><br>
+    <h3><b>City:</b> ${row["City"]} </h3><br>
+    <h3><b>Country:</b> ${row["Country"]} </h3>`);
+    markerLayer.addLayer(marker);
 
-  //   // for the heatmap
-  //   markers.push(location);
-  // }
+    // for the heatmap
+    markers.push(location);
+  }
 
-  // let heatLayer = L.heatLayer(markers);
+  let heatLayer = L.heatLayer(markers);
 
   // Step 3: Create the MAP object
 
@@ -105,7 +110,7 @@ function makeBar(data) {
 
   // Trace for the Data
   let trace = {
-    x: data.bar_data.map(row => row.num_chipotles).reverse(),
+    x: data.bar_data.map(row => row.avg_value).reverse(),
     y: data.bar_data.map(row => row.loc_display).reverse(),
     type: "bar",
     orientation: "h"
@@ -117,10 +122,58 @@ function makeBar(data) {
   // Apply a title to the layout
   let layout = {
     title: `Global Air Quality`,
-    margin: { l: 200 }}
+    margin: { l: 300 }}
 
   // Render the plot to the div tag with id "plot"
   Plotly.newPlot("bar", traces, layout);
+
+}
+
+function makePie(data) {
+
+  // Trace for the Data
+  let trace = {
+    values: data.pie_data.map(row => row.value),
+    labels: data.pie_data.map(row => row.label),
+    hoverinfo: 'label+percent+name',
+    hole: .4,
+    type: 'pie'
+  }
+
+  // Data array
+  let traces = [trace];
+
+  // Apply a title to the layout
+  let layout = {
+    title: `Global Air Quality`,
+    }
+
+  // Render the plot to the div tag with id "plot"
+  Plotly.newPlot("pie", traces, layout);
+
+}
+
+function makePie2(data) {
+
+  // Trace for the Data
+  let trace = {
+    values: data.pie_data2.map(row => row.value),
+    labels: data.pie_data2.map(row => row.label),
+    hoverinfo: 'label+percent+name',
+    hole: .4,
+    type: 'pie'
+  }
+
+  // Data array
+  let traces = [trace];
+
+  // Apply a title to the layout
+  let layout = {
+    title: `Global Air Quality`,
+    }
+
+  // Render the plot to the div tag with id "plot"
+  Plotly.newPlot("pie2", traces, layout);
 
 }
 

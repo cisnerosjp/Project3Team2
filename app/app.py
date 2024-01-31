@@ -24,9 +24,13 @@ def get_data(country):
     # execute the queries
     data_map = sqlHelper.getMapData(country)
     data_bar = sqlHelper.getBarData(country)
+    data_pie = sqlHelper.getPieData(country)
+    data_pie2 = sqlHelper.getPieData2(country)
 
     data = {"map_data": data_map,
-            "bar_data": data_bar}
+           "bar_data": data_bar,
+           "pie_data": data_pie,
+           "pie_data2": data_pie2}
 
     return jsonify(data)
 
