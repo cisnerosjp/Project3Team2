@@ -67,16 +67,6 @@ class SQLHelper():
 
         query = f"""
             SELECT
-                avg("AQI Value") as value,
-                'AQI Value' as label
-            FROM
-                "AQI and Lat Long of Countries"
-            WHERE
-                {where_clause}
-
-            UNION ALL
-
-            SELECT
                 avg("CO AQI Value") as value,
                 'CO AQI Value' as label
             FROM

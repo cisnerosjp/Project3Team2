@@ -17,6 +17,10 @@ def home_page():
 def about_us():
     return render_template("about_us.html")
 
+@app.route("/info")
+def info():
+    return render_template("info.html")
+
 @app.route("/api/v1.0/<country>")
 def get_data(country):
     print(country)

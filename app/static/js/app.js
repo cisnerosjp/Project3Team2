@@ -121,7 +121,7 @@ function makeBar(data) {
 
   // Apply a title to the layout
   let layout = {
-    title: `Global Air Quality`,
+    title: `Average AQI Value`,
     margin: { l: 300 }}
 
   // Render the plot to the div tag with id "plot"
@@ -145,7 +145,7 @@ function makePie(data) {
 
   // Apply a title to the layout
   let layout = {
-    title: `Global Air Quality`,
+    title: `Concentration Per Pollutant`,
     }
 
   // Render the plot to the div tag with id "plot"
@@ -169,7 +169,7 @@ function makePie2(data) {
 
   // Apply a title to the layout
   let layout = {
-    title: `Global Air Quality`,
+    title: `Air Quality Categories based on AQI`,
     }
 
   // Render the plot to the div tag with id "plot"
