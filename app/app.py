@@ -21,6 +21,10 @@ def home_page():
 def about_us():
     return render_template("about_us.html")
 
+@app.route("/links")
+def links():
+    return render_template("links.html")
+
 @app.route("/api/v1.0/<country>")
 def get_data(country):
     print(country)

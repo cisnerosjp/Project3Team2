@@ -115,7 +115,7 @@ function makeBar(data) {
     type: "bar",
     orientation: "h",
     marker: {
-      color: "green" // Change the color here
+      color: "#1FB4A7" // Change the color here
     }
   }
 
@@ -149,7 +149,7 @@ function makePie(data) {
     hole: .4,
     type: 'pie',
     marker: {
-      colors: ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd']
+      colors: ['#1f77b4', '#000000', '#2ca02c', 'violet']
     }
   }
 
@@ -176,7 +176,7 @@ function makePie2(data) {
     hole: .4,
     type: 'pie',
     marker: {
-      colors: ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd']
+      colors: ['#7FBF7F', 'Red', '#737373', 'orange', 'yellow']
     }
   }
 
