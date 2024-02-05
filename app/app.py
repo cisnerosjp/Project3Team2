@@ -9,17 +9,17 @@ from sqlHelper import SQLHelper
 app = Flask(__name__)
 sqlHelper = SQLHelper() # initialize the database helper
 
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
+
 @app.route("/")
 def home_page():
-    return render_template("index.html")
+    return render_template("info.html")
 
 @app.route("/about_us")
 def about_us():
     return render_template("about_us.html")
-
-@app.route("/info")
-def info():
-    return render_template("info.html")
 
 @app.route("/api/v1.0/<country>")
 def get_data(country):

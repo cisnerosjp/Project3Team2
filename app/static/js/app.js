@@ -83,7 +83,7 @@ function makeMap(data) {
   // Create a map object, and set the default layers.
   let myMap = L.map("map", {
     center: [44.05, 43.0667],
-    zoom: 4,
+    zoom: 3,
     layers: [street, markerLayer]
   });
 
@@ -113,7 +113,10 @@ function makeBar(data) {
     x: data.bar_data.map(row => row.avg_value).reverse(),
     y: data.bar_data.map(row => row.loc_display).reverse(),
     type: "bar",
-    orientation: "h"
+    orientation: "h",
+    marker: {
+      color: "green" // Change the color here
+    }
   }
 
   // Data array
@@ -121,8 +124,15 @@ function makeBar(data) {
 
   // Apply a title to the layout
   let layout = {
-    title: `Average AQI Value`,
-    margin: { l: 300 }}
+    title: "Average AQI Value",
+    xaxis: {
+      title: "AQI Value"
+    },
+    yaxis: {
+      title: "Cities"
+    },
+    margin: { l: 300 }
+  };
 
   // Render the plot to the div tag with id "plot"
   Plotly.newPlot("bar", traces, layout);
@@ -137,7 +147,10 @@ function makePie(data) {
     labels: data.pie_data.map(row => row.label),
     hoverinfo: 'label+percent+name',
     hole: .4,
-    type: 'pie'
+    type: 'pie',
+    marker: {
+      colors: ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd']
+    }
   }
 
   // Data array
@@ -161,7 +174,10 @@ function makePie2(data) {
     labels: data.pie_data2.map(row => row.label),
     hoverinfo: 'label+percent+name',
     hole: .4,
-    type: 'pie'
+    type: 'pie',
+    marker: {
+      colors: ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd']
+    }
   }
 
   // Data array
