@@ -28,9 +28,8 @@
 	o	Python in Jupyter Notebook, or Command-line Python scripts that save 			visualizations locally. 
 
 
-### Project Topic: 
-	Climate change has been on the forefront of news broadcasts and in the public spotlight as extreme events are becoming more commonplace. One factor contributing to this has been the increase in pollution. Mass pollution is thought to be the main cause of this and has led countries to take green initiatives. Initiatives that pertain to air quality are specifically observed to determine the amount of pollution in an area. The study of Air Quality Indexes (AQI) benefits 
-countries by determining if green initiatives are cleaning up the air and can be used by the general population should they have certain health issues. This project will explore AQI ratings globally as well as Carbon Monoxide (CO), ozone, Nitrogen Dioxide (NO2), and fine particle pollution (PM2.5) datapoints.
+### Project Topic 
+	Climate change has been on the forefront of news broadcasts and in the public spotlight as extreme events are becoming more commonplace. One factor contributing to this has been the increase in pollution. Mass pollution is thought to be the main cause of this and has led countries to take green initiatives. Initiatives that pertain to air quality are specifically observed to determine the amount of pollution in an area. The study of Air Quality Indexes (AQI) benefits countries by determining if green initiatives are cleaning up the air and can be used by the general population should they have certain health issues. This project will explore AQI ratings globally as well as Carbon Monoxide (CO), ozone, Nitrogen Dioxide (NO2), and fine particle pollution (PM2.5) datapoints.
 
 ### Research Questions:
 
