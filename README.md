@@ -45,8 +45,8 @@ For this Project we got the dataset from Kaggle and first cleaned up the dataset
 
 
 ### Group Members:
-Misha Borunda
-Damarje Brown 
-Kimberly Childers
-Jason Cisneros
-Raheem Yusuff
+- Misha Borunda
+- Damarje Brown 
+- Kimberly Childers
+- Jason Cisneros
+- Raheem Yusuff
